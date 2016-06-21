@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(dht)
+if(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup(TARGETS)
+endif()
 
 #============================================================================
 # Internal compiler options
