@@ -15,7 +15,7 @@ option(DHT_BUILD_EXAMPLE "Build DHT example code" OFF)
 # Compile targets
 #============================================================================
 
-add_library(${PROJECT_NAME} STATIC dht.c dht.h)
+add_library(${PROJECT_NAME} dht.c dht.h)
 target_include_directories(dht PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(DHT_BUILD_EXAMPLE)
