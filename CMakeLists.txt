@@ -18,6 +18,10 @@ option(DHT_BUILD_EXAMPLE "Build DHT example code" OFF)
 add_library(${PROJECT_NAME} dht.c dht.h)
 target_include_directories(dht PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+if(WIN32)
+    target_link_libraries(dht PUBLIC ws2_32)
+endif()
+
 if(DHT_BUILD_EXAMPLE)
 	add_executable(${PROJECT_NAME}-example dht-example.c)
 	target_link_libraries(${PROJECT_NAME}-example dht)
