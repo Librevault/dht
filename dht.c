@@ -51,7 +51,7 @@ THE SOFTWARE.
 #include <netinet/in.h>
 #else
 #ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0501 /* Windows XP */
+#define _WIN32_WINNT 0x0600 /* Windows Vista */
 #endif
 #ifndef WINVER
 #define WINVER _WIN32_WINNT
@@ -100,11 +100,6 @@ random(void)
 {
     return rand();
 }
-
-/* Windows Vista and later already provide the implementation. */
-#if _WIN32_WINNT < 0x0600
-extern const char *inet_ntop(int, const void *, char *, socklen_t);
-#endif
 
 #ifdef _MSC_VER
 /* There is no snprintf in MSVCRT. */
